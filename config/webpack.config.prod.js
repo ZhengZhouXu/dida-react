@@ -166,6 +166,7 @@ module.exports = {
           // in the main CSS file.
           {
             test: /\.css$/,
+            exclude: [path.resolve(__dirname, '../src/common/fonts')],
             loader: ExtractTextPlugin.extract(
               Object.assign(
                 {

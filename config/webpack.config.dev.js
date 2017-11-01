@@ -157,6 +157,7 @@ module.exports = {
           // in development "style" loader enables hot editing of CSS.
           {
             test: /\.css$/,
+            exclude: [path.resolve(__dirname, '../src/common/fonts')],
             use: [
               require.resolve('style-loader'),
               {

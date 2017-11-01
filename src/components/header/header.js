@@ -23,7 +23,7 @@ class Header extends Component {
 		}
 		return (
 			<header styleName="header" style={style}>
-				<span styleName="left">1</span>
+				<i className="fa fa-bars" aria-hidden="true"></i>
 				<span styleName="text">2</span>
 				<span styleName="right">3</span>
 			</header>
