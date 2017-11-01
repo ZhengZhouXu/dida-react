@@ -93,6 +93,7 @@
     "node-sass": "^4.5.3",
     "postcss-load-config": "^1.2.0",
     "precss": "^2.0.0",
+    "react-css-modules": "^4.7.1",
     "sass-loader": "^6.0.6"
   }
 }

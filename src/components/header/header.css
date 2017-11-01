@@ -1,0 +1,16 @@
+$color: green;
+.header {
+    color: $color;
+    
+    .left {
+        color: blue;
+    }
+
+    .right {
+        
+    }
+
+    .text {
+        
+    }
+}

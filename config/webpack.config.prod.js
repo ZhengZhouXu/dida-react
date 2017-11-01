@@ -182,44 +182,12 @@ module.exports = {
                         importLoaders: 1,
                         minimize: true,
                         sourceMap: shouldUseSourceMap,
+                        modules: true
                       },
                     },
                     {
                       loader: require.resolve('postcss-loader')
                     },
-                  ],
-                },
-                extractTextPluginOptions
-              )
-            ),
-            // Note: this won't work without `new ExtractTextPlugin()` in `plugins`.
-          },
-          {
-            test: /\.sass$/,
-            loader: ExtractTextPlugin.extract(
-              Object.assign(
-                {
-                  fallback: {
-                    loader: require.resolve('style-loader'),
-                    options: {
-                      hmr: false,
-                    },
-                  },
-                  use: [
-                    {
-                      loader: require.resolve('css-loader'),
-                      options: {
-                        importLoaders: 1,
-                        minimize: true,
-                        sourceMap: shouldUseSourceMap,
-                      },
-                    },
-                    {
-                      loader: require.resolve('postcss-loader')
-                    },
-                    {
-                      loader: require.resolve('sass-loader')
-                    }
                   ],
                 },
                 extractTextPluginOptions
