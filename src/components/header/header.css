@@ -3,7 +3,7 @@ $color: green;
     color: $color;
     
     .left {
-        color: blue;
+        
     }
 
     .right {
@@ -11,6 +11,6 @@ $color: green;
     }
 
     .text {
-        
+
     }
 }
