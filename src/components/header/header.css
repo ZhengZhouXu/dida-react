@@ -1,23 +1,29 @@
-$color: green;
 .header {
-    color: $color;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-shadow: 0px 3px 2px #ccc;
     
     .left {
-        
+        display: inline-block;
+        float: left;
     }
 
     .right {
-        
+        display: inline-block;
+        float: right;
     }
 
     .text {
-
+        font-size: 20px;
     }
 
     .icon {
         display: inline-block;
-        width: 20px;
-        height: 20px;
+        font-size: 20px;
+        padding: 0 20px;
         color: #fff;
     }
+    
 }

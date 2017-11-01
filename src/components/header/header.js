@@ -23,9 +23,14 @@ class Header extends Component {
 		}
 		return (
 			<header styleName="header" style={style}>
-				<i className="fa fa-bars" aria-hidden="true"></i>
-				<span styleName="text">2</span>
-				<span styleName="right">3</span>
+				<div styleName="left">
+					<i className="fa fa-bars" styleName="icon"></i>
+				</div>
+				<span styleName="text">今天</span>
+				<div styleName="right">
+				<i className="fa fa-dot-circle-o" styleName="icon"></i>
+					<i className="fa fa-ellipsis-v" styleName="icon"></i>
+				</div>
 			</header>
 		)
 	}
