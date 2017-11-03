@@ -10,7 +10,7 @@ class Header extends Component {
 	}
 
 	getHeaderHeight () {
-		return window.innerHeight * 0.09
+		return Math.round(window.innerHeight * 0.09) 
 	}
 
 	render () {
@@ -28,7 +28,7 @@ class Header extends Component {
 				</div>
 				<span styleName="text">今天</span>
 				<div styleName="right">
-				<i className="fa fa-dot-circle-o" styleName="icon"></i>
+				<i className="fa fa-bullseye" styleName="icon"></i>
 					<i className="fa fa-ellipsis-v" styleName="icon"></i>
 				</div>
 			</header>

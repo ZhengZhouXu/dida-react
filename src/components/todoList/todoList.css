@@ -1,0 +1,21 @@
+.tag {
+    padding: 5px 15px;
+    font-size: 12px;
+    background-color: rgb(228, 235, 254);
+    color: rgb(161, 176, 196);
+}
+.todo-list {
+    font-size: 16px;
+
+    li {
+        color: rgb(106, 115, 130);
+        padding: 17px;
+        border-bottom: 1px solid rgb(240, 242, 243) ;
+    }
+
+    .icon {
+        margin: 0 17px 0 0;
+        color: rgb(167, 177, 185);
+        font-size: 18px;
+    }
+}
