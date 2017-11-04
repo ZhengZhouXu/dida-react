@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import { Provider } from 'react-redux'
+// import { Provider } from 'react-redux'
 import TodoList from '../todoList/todoList'
-import store from 'src/redux/store'
+// import store from 'src/redux/store'
 import './mian.css'
 
 class Main extends Component {
@@ -14,13 +14,11 @@ class Main extends Component {
 
     render () {
         const style = this.getPositon()
-        return (
-					<Provider store={store}>
-            <main style={style}>
-							<TodoList />
-							<TodoList completed={true}/>		
-            </main>
-					</Provider>
+        return (					
+					<main style={style}>
+						<TodoList />
+						<TodoList completed={true}/>		
+					</main>
         )
     }
 } 

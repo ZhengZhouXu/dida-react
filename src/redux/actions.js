@@ -13,9 +13,10 @@ export const OperateTodo = {
  创建action函数
  */
 
-export function addTodo () {
+export function addTodo (newTodo) {
 	return {
-		 type: OperateTodo.ADD_TODO
+		 type: OperateTodo.ADD_TODO,
+		 newTodo
 	}
 }
 

@@ -10,12 +10,18 @@
     li {
         color: rgb(106, 115, 130);
         padding: 17px;
-        border-bottom: 1px solid rgb(240, 242, 243) ;
+        border-bottom: 1px solid rgb(240, 242, 243);
+
+        .icon {
+            margin: 0 17px 0 0;
+            color: rgb(167, 177, 185);
+            font-size: 18px;
+        }
+
+        &.li-completed, &.li-completed .icon {
+            color: rgb(210, 218, 221);
+        }
     }
 
-    .icon {
-        margin: 0 17px 0 0;
-        color: rgb(167, 177, 185);
-        font-size: 18px;
-    }
+    
 }

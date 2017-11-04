@@ -10,19 +10,21 @@ class TodoList extends Component {
 		const { completed, onClick } = this.props
 		let list = this.props.list
 		
-		const className = completed ? 'fa fa-check-square-o' : 'fa fa-square-o'
+		const iconClass = completed ? 'fa fa-check-square-o' : 'fa fa-square-o'
+		const liClass = completed ? 'li-completed' : ''
 		// 获得对应的list
 		list = list.filter((item) => {
 			return !!item.completed === !!completed
 		})
 		list = list.map((item) => {
 			return (
-				<li key={item.id} onClick={onClick.bind(this, item.id)}>
-					<i className={className} styleName="icon"></i>
+				<li key={item.id} onClick={onClick.bind(this, item.id)} styleName={liClass}>
+					<i className={iconClass} styleName="icon"></i>
 					{item.text}
 				</li>
 			)
 		})
+
 
 		if (list.length === 0) return
 
