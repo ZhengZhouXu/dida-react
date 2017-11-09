@@ -1,0 +1,14 @@
+@import '../../common/styles/variable.css';
+.slider-menu {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 300px;
+    z-index: -1;
+    background: #fff;
+}
+
+.close {
+    display: inline-block;
+    padding: 10px;
+}

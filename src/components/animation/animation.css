@@ -1,0 +1,15 @@
+/* fade */
+:global(.fade-enter) {
+    opacity: 0;
+}
+:global(.fade-enter.fade-enter-active) {
+    opacity: .7;
+    transition: opacity .5s
+}
+:global(.fade-exit) {
+    opacity: .7;
+}
+:global(.fade-exit.fade-exit-active) {
+    opacity: 0;
+    transition: opacity .5s
+}

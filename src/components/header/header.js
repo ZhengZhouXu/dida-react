@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import CSSModules from 'react-css-modules'
 import styles from './header.css'
 
@@ -9,31 +10,39 @@ class Header extends Component {
 		this.state = {background: "rgb(94, 117, 228)", color: '#fff'}
 	}
 
-	getHeaderHeight () {
-		return Math.round(window.innerHeight * 0.09) 
+	// location = 'right' || 'left'
+	getIconDom (icons, location) {
+		return icons.map((i, index) => {
+			return (i.location === location || i.location === location[0]) &&
+			 	<i key={index} className={i.className} styleName="icon" onClick={i.onClick}></i>
+		})
 	}
 
 	render () {
-		const height = this.getHeaderHeight() + 'px'
+		// const height = this.getHeaderHeight() + 'px'
 		const style = {
-			height: height,
-			lineHeight: height,
 			background: this.state.background,
 			color: this.state.color
 		}
+		const { icons, text } = this.props.headerObj
 		return (
 			<header styleName="header" style={style}>
 				<div styleName="left">
-					<i className="fa fa-bars" styleName="icon"></i>
+					{this.getIconDom(icons, 'left')}
 				</div>
-				<span styleName="text">今天</span>
+				<span styleName="text">{text}</span>
 				<div styleName="right">
-				<i className="fa fa-bullseye" styleName="icon"></i>
-					<i className="fa fa-ellipsis-v" styleName="icon"></i>
+					{this.getIconDom(icons, 'right')}
 				</div>
 			</header>
 		)
 	}
 }
 
-export default CSSModules(Header, styles)
+function mapStateToProps (state) {
+	return {
+		headerObj: state.header
+	}
+}
+
+export default connect(mapStateToProps)(CSSModules(Header, styles))

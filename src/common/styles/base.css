@@ -1,0 +1,19 @@
+html, body {
+    height: 100%;
+}
+
+:global(#root) {
+    height: 100%;
+}
+
+:global(.app) {
+    height: 100%;
+}
+
+:global(.clearfix::after) {
+    content: '.';
+    width: 0;
+    height: 0;
+    visibility: hidden;
+    clear: both;
+}

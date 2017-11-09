@@ -8,12 +8,12 @@ class Footer extends Component {
 	}
 
 	render () {
-		const style = {
-			height: this.getFooterHeight()
-		}
+		// const style = {
+		// 	height: this.getFooterHeight()
+		// }
 
 		return (
-			<footer style={style}>
+			<footer>
 				<AddTodo />
 			</footer>
 		)

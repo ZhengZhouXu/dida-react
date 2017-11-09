@@ -15,7 +15,7 @@ class AddTodo extends Component {
 
 	handleInputChange (e) {
 		this.setState({
-			text: e.target.value.trim(),
+			text: e.target.value,
 		})
 		e.preventDefault()
 	}

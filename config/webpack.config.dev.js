@@ -10,6 +10,7 @@ const eslintFormatter = require('react-dev-utils/eslintFormatter');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const getClientEnvironment = require('./env');
 const paths = require('./paths');
+const staticPath = path.resolve(__dirname, '../src/static')
 
 // Webpack uses `publicPath` to determine where the app is being served from.
 // In development, we always serve from the root. This makes config easier.
@@ -121,6 +122,7 @@ module.exports = {
           },
         ],
         include: paths.appSrc,
+        exclude: staticPath,
       },
       {
         // "oneOf" will traverse all following loaders until one will
@@ -142,6 +144,7 @@ module.exports = {
           {
             test: /\.(js|jsx|mjs)$/,
             include: paths.appSrc,
+            exclude: staticPath,
             loader: require.resolve('babel-loader'),
             options: {
               

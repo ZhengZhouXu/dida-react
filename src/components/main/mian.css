@@ -1,4 +1,8 @@
+@import '../../common/styles/variable.css';
 main {
     position: absolute;
+    top: $height-header;
+    bottom: $height-header;
+    z-index: $z-index-main;
     width: 100%;
 }

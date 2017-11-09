@@ -10,6 +10,7 @@ const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
 const eslintFormatter = require('react-dev-utils/eslintFormatter');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const paths = require('./paths');
+const staticPath = path.resolve(__dirname, '../src/static')
 const getClientEnvironment = require('./env');
 
 // Webpack uses `publicPath` to determine where the app is being served from.
@@ -127,6 +128,7 @@ module.exports = {
           },
         ],
         include: paths.appSrc,
+        exclude: staticPath,
       },
       {
         // "oneOf" will traverse all following loaders until one will
@@ -147,6 +149,7 @@ module.exports = {
           {
             test: /\.(js|jsx|mjs)$/,
             include: paths.appSrc,
+            exclude: staticPath,
             loader: require.resolve('babel-loader'),
             options: {
               

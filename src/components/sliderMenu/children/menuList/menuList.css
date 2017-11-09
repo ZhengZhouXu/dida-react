@@ -1,0 +1,33 @@
+.menu-list {
+    
+    ul {
+        margin-top: 14px;
+        
+        li {
+            display: flex;
+            align-items: center;
+            padding: 14px 0;
+            
+            :global(.icon) { 
+                margin: 0 25px;
+                color: rgb(135, 144, 151);
+                font-size: 20px;
+                vertical-align: top;
+            }
+
+            span {
+                font-size: 14px;
+            }
+
+            &:global(.active) {
+                background: rgb(235, 243, 252);
+                color: rgb(95, 118, 227);
+
+                :global(.icon) {
+                    color: rgb(95, 118, 227);
+                }
+            }
+        }
+    }
+
+}

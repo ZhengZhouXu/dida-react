@@ -8,14 +8,26 @@
     font-size: 16px;
 
     li {
+        display: flex;
         color: rgb(106, 115, 130);
         padding: 17px;
         border-bottom: 1px solid rgb(240, 242, 243);
+        overflow: hidden;
+        word-wrap: break-word;
 
         .icon {
             margin: 0 17px 0 0;
             color: rgb(167, 177, 185);
             font-size: 18px;
+        }
+
+        span {
+            flex: 1;
+            word-break: break-all;
+        }
+
+        i {
+            height: 100%;
         }
 
         &.li-completed, &.li-completed .icon {

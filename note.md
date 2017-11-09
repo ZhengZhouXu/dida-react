@@ -25,17 +25,23 @@ handleClick(porps0, props1, ..., event) {
 ### 组件完成
 1. header (基本完成)
 2. todolist (美化)
+3. addTodo (基本完成)
+
+### 工作
+1. 优化体验 （过长的文本: 解决）
 
 ### 规范
 
 一个todo对象
 ```json
 {
+    id: int || null, // 数据库中的id
     text: '标题',
     describe: '具体的描述' || null,
     createDate: '创建时间', // timestamp
     startDate: '开始时间' || null, // 什么时候开始任务，什么时候结束任务
     endDate: '结束时间' || null,
     completed: Boolean, // 任务是否完成
+    index: int // 列表中的索引，用于操作todo
 }
 ```

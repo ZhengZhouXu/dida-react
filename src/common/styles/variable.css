@@ -1,0 +1,11 @@
+/* z-index */
+$z-index-header: 0;
+$z-index-footer: 0;
+$z-index-main: 0;
+$z-index-cover: 5;
+$z-index-slider-menu: 10;
+$z-index-right: 20;
+
+/* height */
+$height-footer: 54px;
+$height-header: 54px;

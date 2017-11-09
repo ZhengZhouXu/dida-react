@@ -1,0 +1,105 @@
+.sign {
+    height: 100%;
+    width: 100%;
+    background: #fff;
+    text-align: center;
+
+    .logo {
+        padding: 50px;
+    }
+
+    .input-group {
+        position: relative;
+        overflow-x: hidden;
+        width: 100%;
+
+        input[type="text"] {
+            display: block;
+            margin: 25px auto;
+            padding: 5px 3px;
+            border: none;
+            border-bottom: 2px solid rgb(231, 236, 238);
+            width: calc(100% - 100px);
+            font-size: 16px;
+
+            &:focus {
+                outline: none;
+            }
+        }
+
+        .wrapper {
+            position: relative;
+            width: 200%;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        
+        .btn {
+            display: block;
+            margin: 0 auto;
+            border-radius: 3px;
+            padding: 12px;
+            width: calc(100% - 120px);
+            letter-spacing: 1px;
+            background-color: rgb(86, 111, 224);
+            color: #fff;
+            font-size: 14px;
+            box-shadow: 3px 3px 3px #ccc;
+        }
+
+        .link-btn {
+            display: inline-block;
+            margin-top: 18px;
+            letter-spacing: 1px;
+            font-size: 12px;
+            color: rgb(112, 131, 212);
+        }
+
+        .sign-in, .sign-up {
+            width: 50%;
+            float: left;
+        }
+
+        .sign-in {
+            left: 0px;
+        }
+
+        .sign-up {
+            left: calc(100%);
+
+            .link-btn-group  {
+                width: calc(100% - 100px);
+                margin: 0 auto;
+
+                .link-btn {
+                    color: #ccc;
+                }
+            }
+        }
+        
+    }
+
+    .footer {
+        margin-top: 60px;
+        width: 100%;
+        
+        text-align: center;
+        font-size: 30px;
+        
+        :global(.fa) {
+            margin: 0 20px;
+        }
+
+        :global(.fa-qq) {
+            color: rgb(46, 166, 245);
+        }
+
+        :global(.fa-weixin) {
+            color: rgb(29, 220, 19);
+        }
+
+        :global(.fa-weibo) {
+            color: rgb(255, 154, 0);
+        }
+    }
+}
