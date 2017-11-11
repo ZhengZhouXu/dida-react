@@ -1,3 +1,8 @@
+import fetch from 'isomorphic-fetch'
+
+/* 异步测试用的基础url */
+const baseUrl = ' https://www.easy-mock.com/mock/5a055c7be264ca23e8c71f4a'
+
 /* 
 	定义类型
 	*/
@@ -19,6 +24,16 @@ export const SET_HEADER = 'SET_HEADER'
 
 // cover
 export const SET_COVER_DISPLAY = 'SET_COVER_DISPLAY'
+
+// right
+export const SET_RIGHT_ACTIVE = 'SET_RIGHT_ACTIVE'
+
+// Sign
+export const PostUserinfo = {
+	REQUEST: 'REQUEST',
+	RECEIVE: 'RECEIVE',
+	FAIL: 'FAIL'
+}
 
 /*
  创建action函数
@@ -98,5 +113,25 @@ export function setHeader (headerObj) {
 	return {
 		type: SET_HEADER,
 		headerObj
+	}
+}
+
+export function setRightActive (active) {
+	return {
+		type: SET_RIGHT_ACTIVE,
+		active
+	}
+}
+
+/* sign */
+export function postUserinfo () {
+	return dispatch => {
+		dispatch({type: PostUserinfo.REQUEST})
+		return fetch(baseUrl + '/dida_sign_in')
+			.then(response => response.json())
+			.then(json => {
+				dispatch({type: PostUserinfo.RECEIVE, json})
+				return json
+			})
 	}
 }

@@ -1,7 +1,7 @@
 @import '../../common/styles/variable.css';
 footer {
     position: fixed;
-    z-index: -1;
+    z-index: $z-index-footer;
     bottom: 0;
     left: 0;
     width: 100%;

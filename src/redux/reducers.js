@@ -5,7 +5,9 @@ const {
 	OperateTodo, 
 	SliderMenuDisplay,
 	SET_HEADER,
-	SET_COVER_DISPLAY
+	SET_COVER_DISPLAY,
+	SET_RIGHT_ACTIVE,
+	PostUserinfo
 } = actions
 
 function changeTodoCompleted (index, completed) {
@@ -30,7 +32,7 @@ function todos (state=[{id:1,text: '测试1号，嘿嘿', index: 0}, {id:2,text:
 	}
 }
 
-function sliderMenuDisplay (state = true, action) {
+function sliderMenuDisplay (state = false, action) {
 	switch(action.type) {
 		case SliderMenuDisplay.SET_SLIDER_MENU_DISPLAY: return action.display
 		case SliderMenuDisplay.TOGGLE_SLIDER_MENU_DISPLAY: return !state
@@ -52,11 +54,29 @@ function coverDisplay (state = false, action) {
 	}
 }
 
+function rightActive (state = false, action) {
+	switch(action.type) {
+		case SET_RIGHT_ACTIVE: return action.active
+		default: return state
+	}
+}
+
+/* 用于登录的账号密码，此处方便测试返回账号密码，真实环境中只返回登录结果：成功或失败 */
+function userinfo (state = {}, action) {
+	switch(action.type) {
+		case PostUserinfo.RECEIVE: return action.json
+		case PostUserinfo.REQUEST:
+		default: return state
+	}
+}
+
 const reducers = combineReducers({
 	todos,
 	sliderMenuDisplay,
 	header,
-	coverDisplay
+	coverDisplay,
+	rightActive,
+	userinfo
 })
 
 export default reducers

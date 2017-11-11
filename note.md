@@ -21,6 +21,7 @@ handleClick(porps0, props1, ..., event) {
     // your code here
 }
 ```
+5. 异步action
 
 ### 组件完成
 1. header (基本完成)
@@ -29,6 +30,7 @@ handleClick(porps0, props1, ..., event) {
 
 ### 工作
 1. 优化体验 （过长的文本: 解决）
+2. 滑动，better-scroll
 
 ### 规范
 

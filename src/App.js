@@ -8,17 +8,30 @@ import Main from './components/main/main'
 import SliderMenu from './components/sliderMenu/sliderMenu'
 import Cover from './components/cover/cover'
 import Right from './components/rigth/right'
-import { AnimationFade } from './components/animation/animation'
+import { AnimationFade, AnimationSlideRight } from './components/animation/animation'
 import Ripple from 'src/static/js/ripple.min'
 
 class App extends Component {
 
 	constructor (props) {
 		super(props)
-		this.state = {coverDisplay: true}
-		store.subscribe(() => {
-			const { coverDisplay } = store.getState()
-			this.setState({coverDisplay})
+		this.state = {coverDisplay: true, rightActive: false}
+
+		this.storeSubscribe = this.storeSubscribe.bind(this)
+		this.storeSubscribe()
+	}
+
+	storeSubscribe () {
+		store.subscribe(() => {	
+			const { 
+				coverDisplay, 
+				rightActive 
+			} = store.getState()
+
+			this.setState({
+				coverDisplay,
+				rightActive: rightActive
+			})
 		})
 	}
 
@@ -42,25 +55,27 @@ class App extends Component {
 			}]
 		}
 		store.dispatch(setHeader(initHeader))
+
 		new Ripple({
 			color: 'rgba(0, 0, 0, .2)'
 		})
 	}
 
 	render () {
+			console.log(this.state.rightActive)
 			return (
 				<Provider store={store}>
 					<div className="app">
-						<div className="index">
-							<Header />
-							<Main />
-							<Footer />
-							<SliderMenu />
-							<AnimationFade in={this.state.coverDisplay}>
-								<Cover />	
-							</AnimationFade>
-						</div>
-						<Right />
+						<Header />
+						<Main />
+						<Footer />
+						<SliderMenu />
+						<AnimationFade in={this.state.coverDisplay}>
+							<Cover />	
+						</AnimationFade>
+						<AnimationSlideRight in={this.state.rightActive}>
+							<Right />
+						</AnimationSlideRight>
 					</div>
 				</Provider>
 			)

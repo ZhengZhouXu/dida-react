@@ -4,6 +4,14 @@
     background: #fff;
     text-align: center;
 
+    .back {
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 20px;
+        color: rgb(86, 111, 224);
+    }
+
     .logo {
         padding: 50px;
     }

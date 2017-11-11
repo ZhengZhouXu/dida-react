@@ -4,12 +4,28 @@
 }
 :global(.fade-enter.fade-enter-active) {
     opacity: .7;
-    transition: opacity .5s
+    transition: opacity .5s;
 }
 :global(.fade-exit) {
     opacity: .7;
 }
 :global(.fade-exit.fade-exit-active) {
     opacity: 0;
-    transition: opacity .5s
+    transition: opacity .5s;
+}
+
+/* slider */
+:global(.slider-right-enter) {
+    transform: translateX(100%);
+}
+:global(.slider-right-enter.slider-right-enter-active) {
+    transform: translateX(0);
+    transition: transform .5s;
+}
+:global(.slider-right-exit) {
+    transform: translateX(0);
+}
+:global(.slider-right-exit.slider-right-exit-active) {
+    transform: translateX(100%);
+    transition: transform .5s;
 }
