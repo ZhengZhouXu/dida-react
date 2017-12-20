@@ -10,6 +10,7 @@ import Cover from './components/cover/cover'
 import Right from './components/rigth/right'
 import { AnimationFade, AnimationSlideRight } from './components/animation/animation'
 import Ripple from 'src/static/js/ripple.min'
+import { BrowserRouter as Router } from 'react-router-dom'
 
 class App extends Component {
 
@@ -62,21 +63,22 @@ class App extends Component {
 	}
 
 	render () {
-			console.log(this.state.rightActive)
 			return (
 				<Provider store={store}>
-					<div className="app">
-						<Header />
-						<Main />
-						<Footer />
-						<SliderMenu />
-						<AnimationFade in={this.state.coverDisplay}>
-							<Cover />	
-						</AnimationFade>
-						<AnimationSlideRight in={this.state.rightActive}>
-							<Right />
-						</AnimationSlideRight>
-					</div>
+					<Router>
+						<div className="app">
+							<Header />
+							<Main />
+							<Footer />
+							<SliderMenu />
+							<AnimationFade in={this.state.coverDisplay}>
+								<Cover />	
+							</AnimationFade>
+							<AnimationSlideRight in={this.state.rightActive}>
+								<Right />
+							</AnimationSlideRight>
+						</div>
+					</Router>
 				</Provider>
 			)
 	}

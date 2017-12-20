@@ -2,16 +2,15 @@ import React, { Component } from 'react'
 import cssModules from 'react-css-modules'
 import { connect } from 'react-redux'
 import { completeTodo, backoutTodo } from 'src/redux/actions'
+import { UpdateScroll } from 'src/redux/actions'
 // import Ripple from 'src/static/js/ripple.min'
 import styles from './todoList.css'
 
 class TodoList extends Component {
-	// componentDidMount () {
-		
-	// 	new Ripple({
-	// 		color: '#000'
-	// 	})
-	// }
+	componentDidUpdate () {
+		this.props.refreshScroll()
+	}
+
 	render() {
 		// 初始化
 		const { completed, onClick } = this.props
@@ -19,7 +18,7 @@ class TodoList extends Component {
 		
 		const iconClass = completed ? 'fa fa-check-square-o' : 'fa fa-square-o'
 		const liClass = completed ? 'li-completed' : ''
-		// 获得对应的list
+		// debugger
 		list = list.filter((item) => {
 			return !!item.completed === !!completed
 		})
@@ -28,6 +27,7 @@ class TodoList extends Component {
 				<li key={item.index} className="ripple" onClick={onClick.bind(this, item.index)} styleName={liClass}>
 					<i className={iconClass} styleName="icon"></i>
 					<span>{item.text}</span>
+					<span>删除</span>
 				</li>
 			)
 		})
@@ -45,13 +45,6 @@ class TodoList extends Component {
 	}
 }
 
-function mapStateToProps (state) {
-	const list = state.todos
-	return {
-		list
-	}
-}
-
 function mapDispatchToProps (dispatch, ownProps) {
 	return {
 		onClick: (index) => {
@@ -60,8 +53,11 @@ function mapDispatchToProps (dispatch, ownProps) {
 			} else {
 				dispatch(completeTodo(index))
 			}
-		}
+		},
+		refreshScroll: () => dispatch({
+			type: UpdateScroll.MAIN_SCROLL
+		})
 	}
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(cssModules(TodoList, styles)) 
+export default connect(null, mapDispatchToProps)(cssModules(TodoList, styles)) 

@@ -7,7 +7,9 @@ const {
 	SET_HEADER,
 	SET_COVER_DISPLAY,
 	SET_RIGHT_ACTIVE,
-	PostUserinfo
+	PostUserinfo,
+	UpdateScroll,
+	SET_ADD_TODO_SETTING
 } = actions
 
 function changeTodoCompleted (index, completed) {
@@ -32,6 +34,16 @@ function todos (state=[{id:1,text: '测试1号，嘿嘿', index: 0}, {id:2,text:
 	}
 }
 
+// 不同板块添加 todo 时候的 Setting
+function addTodoSetting (state = {}, action) {
+	switch (action.type) {
+		case SET_ADD_TODO_SETTING: 
+			return Object.assign({}, state, action.setting)
+		default: 
+			return state
+	}
+}
+
 function sliderMenuDisplay (state = false, action) {
 	switch(action.type) {
 		case SliderMenuDisplay.SET_SLIDER_MENU_DISPLAY: return action.display
@@ -40,9 +52,10 @@ function sliderMenuDisplay (state = false, action) {
 	}
 }
 
+// text: 文本，icons: 图标
 function header (state = {text: '', icons: []}, action) {
 	switch(action.type) {
-		case SET_HEADER: return action.headerObj
+		case SET_HEADER: return Object.assign({}, state, action.headerObj) 
 		default: return state
 	}
 }
@@ -61,7 +74,6 @@ function rightActive (state = false, action) {
 	}
 }
 
-/* 用于登录的账号密码，此处方便测试返回账号密码，真实环境中只返回登录结果：成功或失败 */
 function userinfo (state = {}, action) {
 	switch(action.type) {
 		case PostUserinfo.RECEIVE: return action.json
@@ -70,13 +82,29 @@ function userinfo (state = {}, action) {
 	}
 }
 
+function scroll (state = {}, action) {
+	if (action.type in UpdateScroll) {
+		if (state[action.type]) {
+			
+			state[action.type].refresh()
+		} else {
+			
+			state[action.type] = action.scroll
+		}
+	}
+	
+	return state
+}
+
 const reducers = combineReducers({
 	todos,
+	addTodoSetting,
 	sliderMenuDisplay,
 	header,
 	coverDisplay,
 	rightActive,
-	userinfo
+	userinfo,
+	scroll
 })
 
 export default reducers

@@ -25,6 +25,7 @@ class Header extends Component {
 			color: this.state.color
 		}
 		const { icons, text } = this.props.headerObj
+		
 		return (
 			<header styleName="header" style={style}>
 				<div styleName="left">

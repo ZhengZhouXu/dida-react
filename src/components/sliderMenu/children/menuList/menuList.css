@@ -19,6 +19,16 @@
                 font-size: 14px;
             }
 
+            a {
+                display: block;
+                width: 100%;
+                text-decoration: none;
+
+                &:visited {
+                    color: #000;
+                }
+            }
+
             &:global(.active) {
                 background: rgb(235, 243, 252);
                 color: rgb(95, 118, 227);
@@ -28,6 +38,8 @@
                 }
             }
         }
+
+        
     }
 
 }

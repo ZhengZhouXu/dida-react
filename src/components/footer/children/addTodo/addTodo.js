@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { addTodo } from 'src/redux/actions'
+import { addTodo, UpdateScroll } from 'src/redux/actions'
 import cssModules from 'react-css-modules'
 import styles from './addTodo.css'
 
@@ -21,13 +21,15 @@ class AddTodo extends Component {
 	}
 
 	handleSendClick (e) {
-		const addNewTodo = this.props.addNewTodo
+		const { addNewTodo, refreshScroll } = this.props
 		const newTodo = {
 			text: this.state.text, 
 			createDate: Date.now(),
+			startDate: this.props.addTodoSetting.date,
 			completed: false
 		}
 		addNewTodo(newTodo)
+		refreshScroll() // 刷新main的scroll
 		this.setState({text: ''})
 		e.preventDefault()
 	}
@@ -48,8 +50,19 @@ function mapDispatchToProps (dispatch, ownProps) {
 	return {
 		addNewTodo: (newTodo) => {
 			dispatch(addTodo(newTodo))
+		},
+		refreshScroll: () => {
+			dispatch({
+				type: UpdateScroll.MAIN_SCROLL
+			})
 		}
 	}
 }
 
-export default connect(null, mapDispatchToProps)(cssModules(AddTodo, styles))
+function mapStateToProps (state) {
+	return {
+		addTodoSetting: state.addTodoSetting // 所要添加todo的时间
+	}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(cssModules(AddTodo, styles))

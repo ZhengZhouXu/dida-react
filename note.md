@@ -41,9 +41,17 @@ handleClick(porps0, props1, ..., event) {
     text: '标题',
     describe: '具体的描述' || null,
     createDate: '创建时间', // timestamp
-    startDate: '开始时间' || null, // 什么时候开始任务，什么时候结束任务
+    startDate: '开始时间' || null, // string：'年月日' 什么时候开始任务，什么时候结束任务
     endDate: '结束时间' || null,
     completed: Boolean, // 任务是否完成
     index: int // 列表中的索引，用于操作todo
 }
 ```
+
+### 功能
+1. 今天：当天添加的todo
+2. 收集箱：所有未完成和已完成的todo
+3. todo滑动删除 
+
+### 细节
+更新state不能在render里进行,可以在componentWillMount更新

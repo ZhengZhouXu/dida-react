@@ -46,6 +46,10 @@ const extractTextPluginOptions = shouldUseRelativeAssetPaths
     { publicPath: Array(cssFilename.split('/').length).join('../') }
   : {};
 
+function resolve (dir) {
+  return path.join(__dirname, '..', dir)
+}
+
 // This is the production configuration.
 // It compiles slowly and is focused on producing a fast and minimal bundle.
 // The development configuration is different and lives in a separate file.
@@ -170,7 +174,7 @@ module.exports = {
           // in the main CSS file.
           {
             test: /\.css$/,
-            exclude: [path.resolve(__dirname, '../src/common/fonts')],
+            include: [resolve('src')],
             loader: ExtractTextPlugin.extract(
               Object.assign(
                 {
@@ -199,6 +203,15 @@ module.exports = {
               )
             ),
             // Note: this won't work without `new ExtractTextPlugin()` in `plugins`.
+          },
+          {
+            test: /\.css$/,
+            use: [
+              require.resolve('style-loader'),
+              {
+                loader: require.resolve('css-loader'),
+              },
+            ],
           },
           // "file" loader makes sure assets end up in the `build` folder.
           // When you `import` an asset, you get its filename.

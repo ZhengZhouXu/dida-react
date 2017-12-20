@@ -28,11 +28,18 @@ export const SET_COVER_DISPLAY = 'SET_COVER_DISPLAY'
 // right
 export const SET_RIGHT_ACTIVE = 'SET_RIGHT_ACTIVE'
 
+export const SET_ADD_TODO_SETTING = 'SET_ADD_TODO_SETTING'
+
 // Sign
 export const PostUserinfo = {
 	REQUEST: 'REQUEST',
 	RECEIVE: 'RECEIVE',
 	FAIL: 'FAIL'
+}
+
+// scroll
+export const UpdateScroll = {
+	MAIN_SCROLL: 'MAIN_SCROLL'
 }
 
 /*
@@ -44,6 +51,13 @@ export function addTodo (newTodo) {
 	return {
 		 type: OperateTodo.ADD_TODO,
 		 newTodo
+	}
+}
+
+export function setAddTodoSetting (setting) {
+	return {
+		type: SET_ADD_TODO_SETTING,
+		setting
 	}
 }
 
@@ -62,14 +76,14 @@ export function backoutTodo (index) {
 }
 
 /* slider menu */
-export function showSliderMenu (display) {
+export function showSliderMenu () {
 	return {
 		type: SliderMenuDisplay.SET_SLIDER_MENU_DISPLAY,
 		display: true
 	}
 }
 
-export function hideSliderMenu (display) {
+export function hideSliderMenu () {
 	return {
 		type: SliderMenuDisplay.SET_SLIDER_MENU_DISPLAY,
 		display: false
@@ -135,3 +149,10 @@ export function postUserinfo () {
 			})
 	}
 }
+
+/* scroll */
+// export function refreshScroll(type) {
+// 	return {
+// 		type
+// 	}
+// }

@@ -1,0 +1,63 @@
+.week {
+    display: flex;
+    padding-top: 10px;
+    margin-bottom: 17px;
+    span {
+        color: #999;
+        font-size: 14px;
+        flex: 1;
+        text-align: center;
+    }
+}
+
+:global(.swiper-container) {
+    width: 100%;
+}
+
+.date-list {
+    display: flex;
+}
+
+.date-wrapper {
+    box-shadow: 0 3px 5px -1px #ccc;
+}
+
+.date {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 0 0 100%;
+
+    span {
+        position: relative;
+        flex: 0 0 14.2%;
+        text-align: center;
+        padding: 17px 0;
+        color: #666;
+        font-size: 14px;
+
+        &.other {
+            color: #ccc;
+        }
+
+        &.active {
+            color: #fff;
+
+            &::before {
+                content: '';
+                position: absolute;
+                z-index: -1;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 40px;
+                height: 40px;
+                background: rgb(94, 117, 228);
+                border-radius: 50%;
+            }
+        }
+
+        
+    }
+
+    
+}

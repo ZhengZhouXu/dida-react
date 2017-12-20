@@ -22,6 +22,10 @@ const publicUrl = '';
 // Get environment variables to inject into our app.
 const env = getClientEnvironment(publicUrl);
 
+function resolve (dir) {
+  return path.join(__dirname, '..', dir)
+}
+
 // This is the development configuration.
 // It is focused on developer experience and fast rebuilds.
 // The production configuration is different and lives in a separate file.
@@ -161,7 +165,8 @@ module.exports = {
           // in development "style" loader enables hot editing of CSS.
           {
             test: /\.css$/,
-            exclude: [path.resolve(__dirname, '../src/common/fonts')],
+            include: [resolve('src')],
+            exclude: [resolve('node_modules'), staticPath],
             use: [
               require.resolve('style-loader'),
               {
@@ -173,6 +178,15 @@ module.exports = {
               },
               {
                 loader: require.resolve('postcss-loader')
+              },
+            ],
+          },
+          {
+            test: /\.css$/,
+            use: [
+              require.resolve('style-loader'),
+              {
+                loader: require.resolve('css-loader'),
               },
             ],
           },
